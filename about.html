@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="input.html">
+    <link href="contact.html">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Hello, world!</title>
+   
+  <style>
+  .container2{
+    margin-left: 100px;
+    width: 60%;
+  }
+  #loader {
+      border: 12px solid #f3f3f3;
+      border-radius: 50%;
+      border-top: 12px solid #444444;
+      width: 70px;
+      height: 70px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .center {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+    body{
+    background-color: #f7f7f7;
+    margin-top:20px;
+}
+
+.main-timeline {
+    position: relative
+}
+
+.main-timeline:before {
+    content: "";
+    display: block;
+    width: 2px;
+    height: 100%;
+    background: #c6c6c6;
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0
+}
+
+.main-timeline .timeline {
+    margin-bottom: 40px;
+    position: relative
+}
+
+.main-timeline .timeline:after {
+    content: "";
+    display: block;
+    clear: both
+}
+
+.main-timeline .icon {
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0
+}
+
+.main-timeline .icon:before,
+.main-timeline .icon:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.33s ease-out 0s
+}
+
+.main-timeline .icon:before {
+    background: #fff;
+    border: 2px solid #232323;
+    left: -3px
+}
+
+.main-timeline .icon:after {
+    border: 2px solid #c6c6c6;
+    left: 3px
+}
+
+.main-timeline .timeline:hover .icon:before {
+    left: 3px
+}
+
+.main-timeline .timeline:hover .icon:after {
+    left: -3px
+}
+
+.main-timeline .date-content {
+    width: 50%;
+    float: left;
+    margin-top: 22px;
+    position: relative
+}
+
+.main-timeline .date-content:before {
+    content: "";
+    width: 36.5%;
+    height: 2px;
+    background: #c6c6c6;
+    margin: auto 0;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    bottom: 0
+}
+
+.main-timeline .date-outer {
+    width: 125px;
+    height: 125px;
+    font-size: 16px;
+    text-align: center;
+    margin: auto;
+    z-index: 1
+}
+
+.main-timeline .date-outer:before,
+.main-timeline .date-outer:after {
+    content: "";
+    width: 125px;
+    height: 125px;
+    margin: 0 auto;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: all 0.33s ease-out 0s
+}
+
+.main-timeline .date-outer:before {
+    background: #fff;
+    border: 2px solid #232323;
+    left: -6px
+}
+
+.main-timeline .date-outer:after {
+    border: 2px solid #c6c6c6;
+    left: 6px
+}
+
+.main-timeline .timeline:hover .date-outer:before {
+    left: 6px
+}
+
+.main-timeline .timeline:hover .date-outer:after {
+    left: -6px
+}
+
+.main-timeline .date {
+    width: 100%;
+    margin: auto;
+    position: absolute;
+    top: 27%;
+    left: 0
+}
+
+.main-timeline .month {
+    font-size: 18px;
+    font-weight: 700
+}
+
+.main-timeline .year {
+    display: block;
+    font-size: 30px;
+    font-weight: 700;
+    color: #232323;
+    line-height: 36px
+}
+
+.main-timeline .timeline-content {
+    width: 50%;
+    padding: 20px 0 20px 50px;
+    float: right
+}
+
+.main-timeline .title {
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 24px;
+    margin: 0 0 15px 0
+}
+
+.main-timeline .description {
+    margin-bottom: 0
+}
+
+.main-timeline .timeline:nth-child(2n) .date-content {
+    float: right
+}
+
+.main-timeline .timeline:nth-child(2n) .date-content:before {
+    left: 10px
+}
+
+.main-timeline .timeline:nth-child(2n) .timeline-content {
+    padding: 20px 50px 20px 0;
+    text-align: right
+}
+
+@media only screen and (max-width: 991px) {
+    .main-timeline .date-content {
+        margin-top: 35px
+    }
+    .main-timeline .date-content:before {
+        width: 22.5%
+    }
+    .main-timeline .timeline-content {
+        padding: 10px 0 10px 30px
+    }
+    .main-timeline .title {
+        font-size: 17px
+    }
+    .main-timeline .timeline:nth-child(2n) .timeline-content {
+        padding: 10px 30px 10px 0
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .main-timeline:before {
+        margin: 0;
+        left: 7px
+    }
+    .main-timeline .timeline {
+        margin-bottom: 20px
+    }
+    .main-timeline .timeline:last-child {
+        margin-bottom: 0
+    }
+    .main-timeline .icon {
+        margin: auto 0
+    }
+    .main-timeline .date-content {
+        width: 95%;
+        float: right;
+        margin-top: 0
+    }
+    .main-timeline .date-content:before {
+        display: none
+    }
+    .main-timeline .date-outer {
+        width: 110px;
+        height: 110px
+    }
+    .main-timeline .date-outer:before,
+    .main-timeline .date-outer:after {
+        width: 110px;
+        height: 110px
+    }
+    .main-timeline .date {
+        top: 30%
+    }
+    .main-timeline .year {
+        font-size: 24px
+    }
+    .main-timeline .timeline-content,
+    .main-timeline .timeline:nth-child(2n) .timeline-content {
+        width: 95%;
+        text-align: center;
+        padding: 10px 0
+    }
+    .main-timeline .title {
+        margin-bottom: 10px
+    }
+}
+  
+  @media only screen and (max-width: 480px){
+    .container2{
+      margin-left: 30px;
+    }
+  }
+  </style>
+  </head>
+  <body>
+    <div id="loader" class="center"></div>
+  <script>
+    document.onreadystatechange = function () {
+      if (document.readyState !== "complete") {
+        document.querySelector(
+          "body").style.visibility = "hidden";
+        document.querySelector(
+          "#loader").style.visibility = "visible";
+      } else {
+        document.querySelector(
+          "#loader").style.display = "none";
+        document.querySelector(
+          "body").style.visibility = "visible";
+      }
+    };
+  </script>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">WELCOME</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="input.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown link
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="https://drive.google.com/file/d/1P9ZhZUAH2q5kfEtfz1tCugPv9vuiAAga/view?usp=sharing">Resume</a></li>
+                <li><a class="dropdown-item" href="https://www.linkedin.com/in/gajendra-chilhate-9867151b5">LinkedIn Profile</a></li>
+                <li><a class="dropdown-item" href="about.html">Certification</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="web.jpg" class="d-block w-100" alt="..." style="height: 450px;" >
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Web Development</h5>
+            <p>Expertise on working with HTML, CSS, Javascript.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="coding.jpg" class="d-block w-100" alt="..." style="height: 450px;" >
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Competitive Coding</h5>
+            <p>Solving challenges on different websites to get advanced in DSA.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="android.jpg" class="d-block w-100" alt="..." style="height: 450px;"  >
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Android Development</h5>
+            <p>Some representative placeholder content for the third slide.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <center><h1 style="margin-top: 20px;">My<u> Wo</u>rk</h1></center>
+    <div class="container px-5"><div class="row row-cols-1 row-cols-md-2 g-4 my-5 mx-5">
+      <div class="col">
+        <div class="card shadow  mb-5 bg-body rounded ">
+          <img src="hackerrank.jpg" class="card-img-top" alt="..." style="height: 200px;">
+          <div class="card-body">
+            <h5 class="card-title"><a href="https://www.hackerrank.com/chilhategajendra">HackerRank</a></h5>
+            <p class="card-text">Working with languages like C++, Java, Python. Have look on my HackerRank profile and ratings. Love's to solve problems on these websites.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow  mb-5 bg-body rounded">
+          <img src="webdev.jpg" class="card-img-top" alt="..." style="height: 200px;">
+          <div class="card-body">
+            <h5 class="card-title"><a href="https://bwpzsgwqhkwottzwippfva-on.drv.tw/the%20sparks%20foundation/task1/" class="link-success">Web Development Project</a></h5>
+            <p class="card-text">Have a good experience on working with HTML, CSS, JavaScript and did an Internship with the sparks foundation see my work.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow  mb-5 bg-body rounded">
+          <img src="webdev.jpg" class="card-img-top" alt="..." style="height: 200px;">
+          <div class="card-body">
+            <h5 class="card-title"><a href="https://leetcode.com/chilhategajendra/" class="link-danger">LeetCode Profile</a></h5>
+            <p class="card-text">Working with languages like C++, Java, Python. Have look on my LeetCode profile and ratings. Love's to solve problems on these websites.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow  mb-5 bg-body rounded">
+          <img src="hackerrank.jpg" class="card-img-top" alt="..." style="height: 200px;">
+          <div class="card-body">
+            <h5 class="card-title"><a href="#" class="link-warning">GeeksForGeeks Profile</a></h5>
+            <p class="card-text" >Working with languages like C++, Java, Python. Have look on my GFG profile and ratings. Love's to solve problems on these websites.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col ">
+        <div class="card shadow  mb-5 bg-body rounded ">
+          <img src="webdev.jpg" class="card-img-top" alt="..." style="height: 200px;">
+          <div class="card-body">
+            <h5 class="card-title"><a href="https://github.com/Gajendra1809" class="link-danger">GitHub Profile</a></h5>
+            <p class="card-text">Have a look on my Projects that helped me to learn a lot of skills and new technologies.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <center><h1>My <u>Recent Interns</u>hips</h1></center><br><br><br>
+    <div class="container">
+      <div class="main-timeline">
+      
+                              <!-- start experience section-->
+                              <div class="timeline">
+                                  <div class="icon"></div>
+                                  <div class="date-content">
+                                      <div class="date-outer">
+                                          <span class="date">
+                                                  <span class="month">4 Months</span>
+                                          <span class="year">2021</span>
+                                          </span>
+                                      </div>
+                                  </div>
+                                  <div class="timeline-content">
+                                    <h3>PrepBytes</h3>
+                                      <h5 class="title">Campus Business Manager</h5>
+                                      <p class="description">
+                                        Promoted various events | Designed Posters | Organized various events with the team in College
+                                      </p>
+                                  </div>
+                              </div>
+                              <!-- end experience section-->
+      
+                              <!-- start experience section-->
+                              <div class="timeline">
+                                  <div class="icon"></div>
+                                  <div class="date-content">
+                                      <div class="date-outer">
+                                          <span class="date">
+                                                  <span class="month">2 Months</span>
+                                          <span class="year">2021</span>
+                                          </span>
+                                      </div>
+                                  </div>
+                                  <div class="timeline-content">
+                                      <h3>Lets Grow More</h3>
+                                      <h5 class="title">Web Development Intern</h5>
+                                      <p class="description">
+                                        Developed a single page Travel website | Technologies used HTML, CSS, JavaScript
+
+                                      </p>
+                                  </div>
+                              </div>
+                              <!-- end experience section-->
+      
+                              <!-- start experience section-->
+                              <div class="timeline">
+                                  <div class="icon"></div>
+                                  <div class="date-content">
+                                      <div class="date-outer">
+                                          <span class="date">
+                                                  <span class="month">2 Months</span>
+                                          <span class="year">2021</span>
+                                          </span>
+                                      </div>
+                                  </div>
+                                  <div class="timeline-content">
+                                    <h3>The Sparks Foundation</h3>
+                                      <h5 class="title">Web Development Intern</h5>
+                                      <p class="description">
+                                        Developed a donation Website Technologies used HTML, CSS
+                                      </p>
+                                  </div>
+                              </div>
+                              <!-- end experience section-->
+      
+                              <!-- start experience section-->
+                              <div class="timeline">
+                                  <div class="icon"></div>
+                                  <div class="date-content">
+                                      <div class="date-outer">
+                                          <span class="date">
+                                                  <span class="month">3 Months</span>
+                                          <span class="year">2020</span>
+                                          </span>
+                                      </div>
+                                  </div>
+                                  <div class="timeline-content">
+                                    <h3>International Model United Nations</h3>
+                                      <h5 class="title">Campus Ambassador</h5>
+                                      <p class="description">
+                                        Promoted there programs on social media (UNESCO and UNICHEF were the part of this program)
+
+                                      </p>
+                                  </div>
+                              </div>
+                              <!-- end experience section-->
+      
+                          </div>
+      </div><br><br>
+
+    <center><h1>Tech<u>nical Sk</u>ills</h1></center><br>
+   <div class="container2 ">
+    <h3>C++</h3>
+     <div class="progress ">
+      <div class="progress-bar  progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+    </div><br><br>
+    <h3>Python</h3>
+    <div class="progress ">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 60%"></div>
+    </div><br><br>
+    <h3>Web Development</h3>
+    <div class="progress ">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 90%"></div>
+    </div><br><br>
+    <h3>Android Development</h3>
+    <div class="progress ">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 65%"></div>
+    </div><br><br>
+    <h3>Competitive Coding</h3>
+    <div class="progress ">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 80%"></div>
+    </div>
+   </div>
+   <div class="container">
+    <section class="py-5 text-center container">
+      <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <h1 class="fw-light"><b>Cer<u>tificat</u>ion</b></h1>
+          <p class="lead text-muted">Received some certificates from Bootcamps, Courses, Internships. Have a look...</p>
+          <p>
+            <a href="input.html" class="btn btn-primary my-2">Home</a>
+            <a href="#" class="btn btn-secondary my-2">About</a>
+          </p>
+        </div>
+      </div>
+      <!-- Gallery -->
+<div class="row">
+  <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+    <img
+      src="5.png"
+      class="w-100 shadow-1-strong rounded mb-4"
+      alt="Boat on Calm Water"
+    />
+
+    <img
+      src="2.png"
+      class="w-100 shadow-1-strong rounded mb-4"
+      alt="Wintry Mountain Landscape"
+    />
+    <img
+      src="7.jpeg"
+      class="w-100 shadow-1-strong rounded mb-4"
+      alt="Wintry Mountain Landscape"
+    />
+    <img
+      src="10.png"
+      class="w-100 shadow-1-strong rounded mb-4"
+      alt="Wintry Mountain Landscape"
+    />
+    
+  </div>
+
+  <div class="col-lg-4 mb-4 mb-lg-0">
+    <img
+      src="1.png"
+      class="w-100 shadow-1-strong rounded mb-4"
+      alt="Mountains in the Clouds"
+    />
+
+    <img
+      src="6.jpeg"
+      class="w-100 shadow-1-strong rounded mb-4"
+      alt="Boat on Calm Water"
+    />
+    <img
+      src="9.png"
+      class="w-100 shadow-1-strong rounded mb-4"
+      alt="Wintry Mountain Landscape"
+    />
+    <img
+      src="11.png"
+      class="w-100 shadow-1-strong rounded mb-4"
+      alt="Wintry Mountain Landscape"
+    />
+  </div>
+
+  <div class="col-lg-4 mb-4 mb-lg-0">
+    <img
+      src="3.png"
+      class="w-100 shadow-1-strong rounded mb-4"
+      alt="Waves at Sea"
+    />
+
+    <img
+      src="4.png"
+      class="w-100 shadow-1-strong rounded mb-4"
+      alt="Yosemite National Park"
+    />
+    <img
+      src="8.png"
+      class="w-100 shadow-1-strong rounded mb-4"
+      alt="Wintry Mountain Landscape"
+    />
+    <img
+      src="12.jpeg"
+      class="w-100 shadow-1-strong rounded mb-4"
+      alt="Wintry Mountain Landscape"
+    />
+  </div>
+</div>
+<!-- Gallery -->
+   
+  
+   <br><br><br><br><br><br>
+   <center><a href="https://drive.google.com/file/d/1P9ZhZUAH2q5kfEtfz1tCugPv9vuiAAga/view?usp=sharing" target="_blank"><button type="button" class="btn btn-outline-primary w-25">My Resume</button></a></center>
+  </div><br><br><br><br>
+  
+
+  <div class="container3">
+    <footer class="py-3 ">
+      <ul class="nav justify-content-center border-bottom ">
+        <li class="nav-item"><a href="input.html" class="nav-link px-2 text-muted">Home</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link px-2 text-muted">About</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link px-2 text-muted">Contact</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link px-2 text-muted">FAQs</a></li>
+      </ul>
+      <p class="text-center text-muted">@ Gajendra Chilhate 2022</p>
+    </footer>
+  </div>
+
+  
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
